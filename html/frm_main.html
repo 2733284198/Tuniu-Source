@@ -641,7 +641,7 @@
         });
     }*/
     apiready = function () {
-        var scrollPicture = api.require('scrollPicture')
+        /*var scrollPicture = api.require('scrollPicture')
                 ,imgsArr=['widget://image/1.jpg','widget://image/2.jpg','widget://image/3.jpg'
                     ,'widget://image/4.jpg','widget://image/5.jpg','widget://image/6.jpg'
                     ,'widget://image/7.jpg'];
@@ -665,7 +665,47 @@
             } else {
 
             }
-        });
+        });*/
+        var UIScrollPicture = api.require('UIScrollPicture');
+		UIScrollPicture.open({
+		    rect: {
+		        x: 0,
+		        y: 0,
+		        w:api.winWidth,
+		        h:157,
+		    },
+		    data: {
+		        paths: [
+		            'widget://image/1.jpg',
+		            'widget://image/2.jpg',
+		            'widget://image/3.jpg',
+		            'widget://image/4.jpg',
+		            'widget://image/5.jpg',
+		            'widget://image/6.jpg',
+		            'widget://image/7.jpg',
+		        ]
+		    },
+		    styles: {
+		        indicator: {
+		            align: 'center',
+		            color: '#9B9B9B',
+		            activeColor: '#000000'
+		        }
+		    },
+		    placeholderImg: 'widget://res/slide1.jpg',
+		    contentMode: 'scaleToFill',
+		    interval: 3,
+		    fixedOn:'frm_main',
+		    loop: true,
+		    fixed: false
+		}, function(ret, err) {
+		    if (ret) {
+//		        alert(JSON.stringify(ret));
+		    } else {
+//		        alert(JSON.stringify(err));
+		    }
+		});
+
 
         api.setRefreshHeaderInfo({
             visible: true,
